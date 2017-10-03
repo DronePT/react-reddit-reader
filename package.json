@@ -88,6 +88,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "compass-mixins": "^0.12.10",
     "node-sass": "^4.5.3",
     "sass-lint": "^1.12.0",
     "sass-loader": "^6.0.6"

@@ -1,0 +1,22 @@
+@import './../../../assets/variables'
+@import '~compass-mixins'
+
+
+.sidebar
+  @include filter-gradient(#222, #4d5b7a, vertical);
+  @include background-image(linear-gradient(top, #222 0%, #222 35%, #4d5b7a 100%));
+
+  align-items: center;
+  // background-color: $sidebar-bg
+  display: flex
+  flex-flow: column;
+  height: 100%
+  left: 0
+  padding: 10px 0
+  position: fixed
+  top: 0
+  width: $sidebar-width
+
+  .sidebar-logo
+    height: 64px
+    width: 64px
