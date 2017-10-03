@@ -1,0 +1,44 @@
+$border-color: #e4e3eb
+$white: #fff
+$bg-color-avatar: #ff4860
+$bg-color-over: #f0effd
+
+.subreddit-item
+  display: flex
+  padding-top: 16px
+
+  &:hover
+    background-color: $bg-color-over
+
+  > .left
+    display: flex
+    justify-content: flex-end
+    width: 60px
+
+    .avatar
+      align-items: center
+      background-color: $bg-color-avatar
+      border-radius: 50%
+      color: $white
+      display: flex
+      height: 36px
+      justify-content: center
+      width: 36px
+
+  > .right
+    border-bottom: solid 1px $border-color
+    flex: 1
+    padding: 0 8px 16px
+
+    .header
+      font-size: 1rem
+      font-weight: 500
+
+    .body
+      font-size: .8rem
+      font-weight: 300
+
+    .footer
+      font-size: .8rem
+      font-weight: 600
+
