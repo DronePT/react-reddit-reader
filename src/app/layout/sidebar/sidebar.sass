@@ -1,22 +1,52 @@
 @import './../../../assets/variables'
 @import '~compass-mixins'
 
+$white: #fff
+$white-transparent: rgba(255, 255, 255, .1)
+$shadow-color: rgba(0, 0, 0, .16)
 
 .sidebar
-  @include filter-gradient(#222, #4d5b7a, vertical);
-  @include background-image(linear-gradient(top, #222 0%, #222 35%, #4d5b7a 100%));
+  @include filter-gradient(#af37f7, #4960f4, vertical);
+  @include background-image(linear-gradient(top, #af37f7 0%, #af37f7 0%, #4960f4 100%));
 
   align-items: center;
   // background-color: $sidebar-bg
+  box-shadow: inset -6px 0 16px -4px $shadow-color
   display: flex
   flex-flow: column;
   height: 100%
   left: 0
-  padding: 10px 0
+  padding: 0
   position: fixed
   top: 0
   width: $sidebar-width
 
-  .sidebar-logo
-    height: 64px
-    width: 64px
+  .logo-container
+    align-items: center
+    display: flex
+    height: $sidebar-width
+    justify-content: center
+    margin-bottom: $sidebar-width / 2
+    width: $sidebar-width
+
+    .sidebar-logo
+      height: 32px
+      width: 32px
+
+  .menu-container
+    ul > li > a
+      align-items: center
+      color: $white
+      display: flex
+      height: $sidebar-width
+      justify-content: center
+      text-decoration: none
+      width: $sidebar-width
+
+      &:hover,
+      &:active,
+      &:focus
+        background-color: $white-transparent
+
+      > i
+        font-size: 24px
