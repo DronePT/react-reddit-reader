@@ -1,0 +1,38 @@
+$bg-color: #f7f7f9
+$border-color: #efeef3
+
+$bg-color-input: #f1eff2
+$placeholder-color: #777791
+$icon-color: #6557f2
+
+.sub-reddits
+  background-color: $bg-color
+  border-right: solid 1px $border-color
+  height: 100%
+  padding: 0
+  width: 450px
+
+  .searcher
+    align-items: center
+    display: flex
+    padding: 16px
+    position: relative
+
+  .searcher > .search-icon
+    position: absolute
+    right: 32px
+    z-index: 1
+
+    > i
+      color: $icon-color
+      font-size: 16px
+
+  .searcher > input
+    background-color: $bg-color-input
+    border: 0
+    outline: 0
+    padding: 16px 48px 16px 16px
+    width: 100%
+
+::-webkit-input-placeholder
+  color: $placeholder-color
