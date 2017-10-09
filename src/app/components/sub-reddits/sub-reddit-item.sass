@@ -2,11 +2,16 @@ $border-color: #e4e3eb
 $white: #fff
 $bg-color-avatar: #ff4860
 $bg-color-over: #f0effd
+$body-color: #aaa8be
+
+.subreddit-item-link
+  text-decoration: none
 
 .subreddit-item
   display: flex
   padding-top: 16px
 
+  &.is-active,
   &:hover
     background-color: $bg-color-over
 
@@ -31,14 +36,17 @@ $bg-color-over: #f0effd
     padding: 0 8px 16px
 
     .header
+      color: $body-color
       font-size: 1rem
       font-weight: 500
 
     .body
-      font-size: .8rem
+      color: $body-color
+      font-size: .75rem
       font-weight: 300
 
     .footer
+      color: $body-color
       font-size: .8rem
       font-weight: 600
 

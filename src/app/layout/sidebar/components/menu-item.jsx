@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MenuItem = ({ icon, children, link = '#default-link' }) => {
     return (
         <li>
-            <a href={link}>
+            <Link to={link}>
                 <i className={`fa fa-${icon}`}>{children}</i>
-            </a>
+            </Link>
         </li>
     )
 }
