@@ -49,6 +49,10 @@ class RedditContent extends Component {
                 {this.renderCard('[Sério] Bloquearam-me a conta bancária!')}
                 {this.renderCard('Orçamento do Estado. PS apoia Ferreira Leite nas críticas ao CDS sobre horas extraordinárias', 'https://a.thumbs.redditmedia.com/I4SAjEwcK_Jxo2n4o00opMntRYeNiHPCY3_EUfZJP14.jpg')}
 
+                {this.renderCard('[Remax] T0 com 24 metros quadrados no Príncipe Real. Lava-loiça praticamente na cama. € 305.000.', 'https://a.thumbs.redditmedia.com/A9ywzSsJGzGUCk8xqRf3h0B5wPfeNrJIfHsEyOTmxP4.jpg')}
+                {this.renderCard('[Sério] Bloquearam-me a conta bancária!')}
+                {this.renderCard('Orçamento do Estado. PS apoia Ferreira Leite nas críticas ao CDS sobre horas extraordinárias', 'https://a.thumbs.redditmedia.com/I4SAjEwcK_Jxo2n4o00opMntRYeNiHPCY3_EUfZJP14.jpg')}
+
             </div>
         )
     }
