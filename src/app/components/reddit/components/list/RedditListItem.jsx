@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-import './sub-reddit-item.sass'
+import './RedditListItem.sass'
 
-const SubRedditItem = ({ name, children, color = '#f5657c', location, match }) => {
-    const { params, path } = match
+const RedditListItem = ({ name, children, color = '#f5657c', location, match }) => {
+    const { path } = match
+    const { pathname } = location
 
-    const cname = `subreddit-item ${params.subreddit === name ? 'is-active' : ''}`
-    const link = params.subreddit
-        ? match.path.replace(':subreddit', name)
-        : `${path}/${name}`
+    const link = `${path}/${name}`
+    const cname = `subreddit-item ${pathname === link ? 'is-active' : ''}`
 
     return (
         <Link to={link} className="subreddit-item-link">
@@ -32,4 +31,4 @@ const SubRedditItem = ({ name, children, color = '#f5657c', location, match }) =
     )
 }
 
-export default withRouter(SubRedditItem)
+export default withRouter(RedditListItem)

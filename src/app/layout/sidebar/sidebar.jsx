@@ -13,10 +13,10 @@ const Sidebar = () => {
             </div>
 
             <MenuContainer>
-                <MenuItem icon="line-chart" link="/trending" />
-                <MenuItem icon="search" link="/search" />
-                <MenuItem icon="user-o" link="/profile" />
-                <MenuItem icon="heart-o" link="/favorites" />
+                <MenuItem icon="line-chart" link="/sub/trending" />
+                <MenuItem icon="search" link="/sub/search" />
+                <MenuItem icon="user-o" link="/sub/profile" />
+                <MenuItem icon="heart-o" link="/sub/favorites" />
                 <MenuItem icon="sign-out" link="/sign-out" />
             </MenuContainer>
         </div>

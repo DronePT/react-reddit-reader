@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import './App.sass';
 
 import Sidebar from './layout/sidebar/sidebar'
-import SubReddits from './components/sub-reddits/sub-reddits'
+import RedditContainer from './components/reddit/RedditContainer'
 
 class App extends Component {
   render() {
@@ -14,8 +14,7 @@ class App extends Component {
 
         <div className="app-content">
           <Switch>
-            <Route path="/favorites" exact={true} component={SubReddits} />
-            <Route path="/favorites/:subreddit" exact={true} component={SubReddits} />
+            <Route path="/sub" component={RedditContainer} />
             <Route path="/:value" render={
               (props) => (
                 <div className="page-not-found">

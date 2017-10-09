@@ -1,9 +1,12 @@
 import React from 'react'
-import './sub-reddits.sass'
 
-import SubredditItem from './sub-reddit-item'
+// styling
+import './RedditList.sass'
 
-const SubReddits = () => {
+import RedditListItem from './RedditListItem'
+
+// <Route path="/favorites/:subreddit" exact={true} component={RedditList} />
+const RedditList = () => {
     return (
         <div className="sub-reddits">
             <div className="searcher">
@@ -18,24 +21,24 @@ const SubReddits = () => {
                 </div>
             </div>
 
-            <SubredditItem name="leagueoflegends">
+            <RedditListItem name="leagueoflegends">
                 Employee Parts With Riot After Comments About Streamer Dying
-            </SubredditItem>
+            </RedditListItem>
 
-            <SubredditItem
+            <RedditListItem
                 name="teraonline"
                 color="#6acaf4"
             >
                 Server europe, can I have an info on +15 ambush?
-            </SubredditItem>
+            </RedditListItem>
 
-            <SubredditItem
+            <RedditListItem
                 name="portugal"
                 color="#ffb549">
                 Passos Coelho não se recandidata à liderança do PSD
-            </SubredditItem>
+            </RedditListItem>
         </div>
     )
 }
 
-export default SubReddits
+export default RedditList
