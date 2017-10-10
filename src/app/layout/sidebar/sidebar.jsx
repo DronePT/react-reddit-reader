@@ -5,6 +5,14 @@ import './sidebar.sass'
 import MenuContainer from './components/menu-container'
 import MenuItem from './components/menu-item'
 
+// const electron = require('electron')
+const electron = window.require('electron')
+const { ipcRenderer } = electron
+
+const handleCloseClick = () => {
+    ipcRenderer.send('app:close', true)
+}
+
 const Sidebar = () => {
     return (
         <div className="sidebar">
@@ -17,7 +25,10 @@ const Sidebar = () => {
                 <MenuItem icon="search" link="/sub/search" />
                 <MenuItem icon="user-o" link="/sub/profile" />
                 <MenuItem icon="heart-o" link="/sub/favorites" />
-                <MenuItem icon="sign-out" link="/sign-out" />
+                <MenuItem
+                    icon="sign-out"
+                    link="/sign-out"
+                    onClick={handleCloseClick} />
             </MenuContainer>
         </div>
     )
