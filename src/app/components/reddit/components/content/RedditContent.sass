@@ -1,6 +1,7 @@
 $light-grey: #f0f0f0;
 $lighter-grey: #fafafa;
 $white: #fff;
+$white-75: rgba(255, 255, 255, .75);
 $light-purple: #777791
 $dark-purple: #4820bf
 
@@ -8,10 +9,23 @@ $black-16: rgba(0, 0, 0, .16)
 $black-32: rgba(0, 0, 0, .32)
 
 .reddit-content
+  position: relative
   flex: 1
   height: 100%
   overflow: auto
   padding: 16px
+
+  .loading-threads
+    position: absolute
+    z-index: 1
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $white-75
 
   > .rc-title
     align-items: center
@@ -19,58 +33,4 @@ $black-32: rgba(0, 0, 0, .32)
     font-size: 1.5rem
     height: 50px
     margin-bottom: 16px
-
-.reddit-card
-  background-color: $white
-  box-shadow: 2px 2px 4px -2px $black-16, 0 0 0 -16px $black-32
-  display: flex
-  margin-bottom: 8px
-  padding: 16px
-  transition: background-color .2s ease
-  will-change: background-color
-
-  &:hover
-    background-color: $lighter-grey
-
-  .reddit-card--avatar
-    margin-right: 16px
-
-    > .avatar
-      background-color: $light-grey
-      background-position: center
-      background-size: cover
-      border-radius: 50%
-      height: 48px
-      width: 48px
-
-  .reddit-card--body
-    color: $light-purple
-
-    .header
-      font-size: .9rem
-      font-weight: 700
-
-    .footer
-      font-size: .75rem
-
-      > span
-        color: $dark-purple
-
-        &.author
-          &::before
-            content: '@'
-
-    .tags
-      display: flex
-      height: 16px
-
-    .tag
-      align-items: center
-      background-color: $dark-purple
-      border-radius: 3px
-      box-shadow: 2px 2px 4px -2px $black-16, 0 0 0 -16px $black-16
-      color: $white
-      display: flex
-      font-size: .7rem
-      padding: 0 8px
 
