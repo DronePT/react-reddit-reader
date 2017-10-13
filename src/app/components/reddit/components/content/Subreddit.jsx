@@ -2,28 +2,33 @@ import React, { Component } from 'react'
 import HTTPClient from 'axios'
 
 // styling
-import './RedditContent.sass'
+import './Subreddit.sass'
 
 // components
 import RedditCard from './RedditCard'
+import Loading from './../../../loading/Loading'
+import ErrorBox from './../../../error/ErrorBox'
 
-// TODO: create component file for this
-const Loading = ({ children }) => (
-    <div
-        className="loading-threads"
-        dangerouslySetInnerHTML={{ __html: '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' }} />
-)
+// constants
+const NETWORK_EROR = 'Network Error'
 
-class RedditContent extends Component {
+class Subreddit extends Component {
     constructor () {
         super()
 
         this.state = {
             isFetching: false,
-            threads: []
+            threads: [],
+            error: null
         }
 
         this.fetchSubreddit = this.fetchSubreddit.bind(this)
+        this.handleErrorDiscard = this.handleErrorDiscard.bind(this)
+    }
+
+    // custom handlers
+    handleErrorDiscard () {
+        this.setState({ error: null })
     }
 
     // custom methods
@@ -32,7 +37,10 @@ class RedditContent extends Component {
 
         if (isFetching) return
 
-        this.setState({ isFetching: true })
+        this.setState({
+            error: null,
+            isFetching: true
+        })
 
         HTTPClient.get(`https://www.reddit.com/r/${subreddit}.json`)
             .then(
@@ -40,6 +48,14 @@ class RedditContent extends Component {
                     const { children: threads } = response.data
 
                     this.setState({ threads, isFetching: false })
+                }
+            )
+            .catch(
+                ({ message: errMessage }) => {
+                    if (errMessage === NETWORK_EROR ) {
+                        const error = 'We couldn\'t connect to reddit, please check your connection status!'
+                        this.setState({ error, isFetching: false })
+                    }
                 }
             )
     }
@@ -58,7 +74,7 @@ class RedditContent extends Component {
 
     // react component methods
     render () {
-        const { isFetching, threads } = this.state
+        const { isFetching, threads, error } = this.state
 
         const { match } = this.props
         const { subreddit } = match.params
@@ -66,12 +82,13 @@ class RedditContent extends Component {
         return (
             <div className="reddit-content">
                 {isFetching ? <Loading /> : null}
+                {error ? <ErrorBox onDiscard={this.handleErrorDiscard}>{error}</ErrorBox> : null}
                 <h1 className="rc-title">/r/{subreddit}</h1>
 
-                {threads.map((thread, key) => <RedditCard key={key} thread={thread} />)}
+                {threads.map((thread, key) => <RedditCard key={key} thread={thread} url={match.url} />)}
             </div>
         )
     }
 }
 
-export default RedditContent
+export default Subreddit

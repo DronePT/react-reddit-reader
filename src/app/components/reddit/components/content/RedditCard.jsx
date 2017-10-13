@@ -1,13 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import moment from 'moment'
 
 // styling
 import './RedditCard.sass'
 
-const RedditCard = ({ thread }) => {
+const RedditCard = ({ thread, url }) => {
     if (!thread) return null
 
     const {
+        id,
         title,
         preview,
         author,
@@ -26,7 +29,7 @@ const RedditCard = ({ thread }) => {
     const isnew = false
 
     return (
-        <div className="reddit-card">
+        <Link to={`${url}/${id}`} className="reddit-card">
             <div className="reddit-card--avatar">
                 <div className="avatar" style={style}>
                     <div className="score">{score}</div>
@@ -53,7 +56,7 @@ const RedditCard = ({ thread }) => {
                     {isnew ? <span className="tag">new</span> : null}
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

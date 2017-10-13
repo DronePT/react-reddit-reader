@@ -1,7 +1,7 @@
 const path = require('path')
 const electron = require('electron')
 
-const { app, BrowserWindow } = electron
+const { app, BrowserWindow, ipcMain } = electron
 
 app.on('ready', () => {
   app.dock.setIcon(
@@ -18,3 +18,5 @@ app.on('ready', () => {
   mainWindow.loadURL('http://localhost:3000')
 
 })
+
+ipcMain.on('app:close', _ => app.quit())

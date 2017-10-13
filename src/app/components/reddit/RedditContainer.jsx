@@ -5,7 +5,8 @@ import { Switch, Route } from 'react-router-dom'
 import './RedditContainer.sass'
 
 import RedditList from './components/list/RedditList'
-import RedditContent from './components/content/RedditContent'
+import Subreddit from './components/content/Subreddit'
+import Topic from './components/content/Topic'
 
 const createUrlPath = match => path => `${match.path}/${path}`
 
@@ -26,7 +27,8 @@ const RedditContainer = ({ match }) => {
                 )} />
             </Switch>
 
-            <Route path={urlPath(':page/:subreddit')} component={RedditContent} />
+            <Route path={urlPath(':page/:subreddit')} exact component={Subreddit} />
+            <Route path={urlPath(':page/:subreddit/:topic')} exact component={Topic} />
         </div>
     )
 }

@@ -5,6 +5,16 @@ import './RedditList.sass'
 
 import RedditListItem from './RedditListItem'
 
+const LIST = [
+    { name: 'reactjs', color: null },
+    { name : 'reactjs', color: null },
+    { name : 'worldnews', color: null },
+    { name : 'interestingasfuck', color: null },
+    { name : 'leagueoflegends', color: null },
+    { name : 'teraonline', color: '#6acaf4' },
+    { name : 'portugal', color: '#ffb549' }
+]
+
 // <Route path="/favorites/:subreddit" exact={true} component={RedditList} />
 const RedditList = () => {
     return (
@@ -21,22 +31,13 @@ const RedditList = () => {
                 </div>
             </div>
 
-            <RedditListItem name="leagueoflegends">
-                Employee Parts With Riot After Comments About Streamer Dying
-            </RedditListItem>
-
-            <RedditListItem
-                name="teraonline"
-                color="#6acaf4"
-            >
-                Server europe, can I have an info on +15 ambush?
-            </RedditListItem>
-
-            <RedditListItem
-                name="portugal"
-                color="#ffb549">
-                Passos Coelho não se recandidata à liderança do PSD
-            </RedditListItem>
+            {LIST.map(({ name, color}, key) => (
+                <RedditListItem
+                    key={key}
+                    name={name}
+                    color={color} />
+                )
+            )}
         </div>
     )
 }

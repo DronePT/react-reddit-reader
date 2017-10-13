@@ -21,10 +21,10 @@ const RedditListItem = ({ name, children, color = '#f5657c', location, match }) 
                 </div>
                 <div className="right">
                     <div className="header">/r/{name}</div>
-                    <div className="body">
+                    {/* <div className="body">
                         {children}
                     </div>
-                    <div className="footer">a day ago</div>
+                    <div className="footer">a day ago</div> */}
                 </div>
             </div>
         </Link>
